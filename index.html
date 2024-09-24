@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Examen de Inglés</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 20px;
+        }
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            background: white;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .question {
+            margin-bottom: 20px;
+        }
+        .answers {
+            margin-left: 20px;
+        }
+        .btn {
+            background-color: #007bff;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        .btn:hover {
+            background-color: #0056b3;
+        }
+        .result {
+            font-size: 20px;
+            margin-top: 20px;
+        }
+        .motivational {
+            margin-top: 10px;
+            font-size: 18px;
+        }
+        .green-button {
+            background-color: green; /* Color verde */
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h2>Examen de Inglés</h2>
+    <form id="quizForm">
+        <!-- Pregunta 1 -->
+        <div class="question">
+            <p>1. ¿Cómo se dice "lunes" en inglés?</p>
+            <div class="answers">
+                <label><input type="radio" name="q1" value="A"> Monday</label>
+                <label><input type="radio" name="q1" value="B"> Sunday</label>
+                <label><input type="radio" name="q1" value="C"> Tuesday</label>
+            </div>
+        </div>
+
+        <!-- Pregunta 2 -->
+        <div class="question">
+            <p>2. ¿Cuál es el tercer día de la semana en inglés?</p>
+            <div class="answers">
+                <label><input type="radio" name="q2" value="A"> Saturday</label>
+                <label><input type="radio" name="q2" value="B"> Wednesday</label>
+                <label><input type="radio" name="q2" value="C"> Friday</label>
+            </div>
+        </div>
+
+        <!-- Pregunta 3 -->
+        <div class="question">
+            <p>3. ¿Qué día viene después de "martes"?</p>
+            <div class="answers">
+                <label><input type="radio" name="q3" value="A"> Sunday</label>
+                <label><input type="radio" name="q3" value="B"> Wednesday</label>
+                <label><input type="radio" name="q3" value="C"> Thursday</label>
+            </div>
+        </div>
+
+        <!-- Pregunta 4 -->
+        <div class="question">
+            <p>4. ¿Cómo se dice "viernes" en inglés?</p>
+            <div class="answers">
+                <label><input type="radio" name="q4" value="A"> Friday</label>
+                <label><input type="radio" name="q4" value="B"> Saturday</label>
+                <label><input type="radio" name="q4" value="C"> Thursday</label>
+            </div>
+        </div>
+
+        <!-- Pregunta 5 -->
+        <div class="question">
+            <p>5. ¿Cuál es el último día de la semana?</p>
+            <div class="answers">
+                <label><input type="radio" name="q5" value="A"> Sunday</label>
+                <label><input type="radio" name="q5" value="B"> Saturday</label>
+                <label><input type="radio" name="q5" value="C"> Monday</label>
+            </div>
+        </div>
+
+        <!-- Pregunta 6 -->
+        <div class="question">
+            <p>6. ¿Qué día de la semana es conocido como "Día de San Valentín"?</p>
+            <div class="answers">
+                <label><input type="radio" name="q6" value="A"> Tuesday</label>
+                <label><input type="radio" name="q6" value="B"> Thursday</label>
+                <label><input type="radio" name="q6" value="C"> Sunday</label>
+            </div>
+        </div>
+
+        <!-- Pregunta 7 -->
+        <div class="question">
+            <p>7. ¿Cómo se dice "sábado" en inglés?</p>
+            <div class="answers">
+                <label><input type="radio" name="q7" value="A"> Saturday</label>
+                <label><input type="radio" name="q7" value="B"> Friday</label>
+                <label><input type="radio" name="q7" value="C"> Monday</label>
+            </div>
+        </div>
+
+        <!-- Pregunta 8 -->
+        <div class="question">
+            <p>8. ¿Cuál es el segundo día de la semana en inglés?</p>
+            <div class="answers">
+                <label><input type="radio" name="q8" value="A"> Tuesday</label>
+                <label><input type="radio" name="q8" value="B"> Monday</label>
+                <label><input type="radio" name="q8" value="C"> Wednesday</label>
+            </div>
+        </div>
+
+        <!-- Pregunta 9 -->
+        <div class="question">
+            <p>9. ¿Cómo se dice "miércoles" en inglés?</p>
+            <div class="answers">
+                <label><input type="radio" name="q9" value="A"> Wednesday</label>
+                <label><input type="radio" name="q9" value="B"> Monday</label>
+                <label><input type="radio" name="q9" value="C"> Friday</label>
+            </div>
+        </div>
+
+        <!-- Pregunta 10 -->
+        <div class="question">
+            <p>10. ¿Cómo se dice "Viernes" en inglés?</p>
+            <div class="answers">
+                <label><input type="radio" name="q10" value="A"> Thursday</label>
+                <label><input type="radio" name="q10" value="B"> Friday</label>
+                <label><input type="radio" name="q10" value="C"> Sunday</label>
+            </div>
+        </div>
+
+        <button type="button" class="btn" onclick="calculateScore()">Enviar Respuestas</button>
+    </form>
+
+    <div class="result-container" id="resultContainer" style="display: none;">
+        <div id="result" class="result"></div>
+        <div id="motivational" class="motivational"></div>
+        <div id="nextModule" class="motivational"></div>
+        <button id="retryButton" class="btn" onclick="retryQuiz()" style="display: none;">Volver a hacer el examen</button>
+        <a id="continueButton" href="https://ds182.github.io/Iniciocps/" class="btn" style="display: none;">Continuar</a>
+    </div>
+</div>
+
+<script>
+    function calculateScore() {
+        let score = 0;
+        const totalQuestions = 10;
+
+        const answers = {
+            q1: 'A',
+            q2: 'B',
+            q3: 'B',
+            q4: 'A',
+            q5: 'A',
+            q6: 'A',
+            q7: 'A',
+            q8: 'A',
+            q9: 'A',
+            q10: 'B'
+        };
+
+        for (let i = 1; i <= totalQuestions; i++) {
+            const selectedOption = document.querySelector(`input[name="q${i}"]:checked`);
+            if (selectedOption && selectedOption.value === answers[`q${i}`]) {
+                score++;
+            }
+        }
+
+        const finalScore = (score / totalQuestions) * 10;
+        document.getElementById('result').textContent = `Tu calificación es: ${finalScore.toFixed(1)} / 10`;
+        
+        let motivationalMessage = '';
+        let nextModuleMessage = '';
+        const continueButton = document.getElementById('continueButton');
+        
+        if (finalScore >= 8) {
+            motivationalMessage = "¡Excelente trabajo! Sigue así y no te detengas.";
+            nextModuleMessage = "El siguiente módulo se permitirá con una calificación mayor a 8.";
+            continueButton.style.display = 'inline-block'; // Muestra el botón de continuar
+            continueButton.classList.add('green-button'); // Agrega la clase de botón verde
+        } else {
+            motivationalMessage = "¡Buen esfuerzo! Sigue practicando y mejorarás.";
+            nextModuleMessage = "El siguiente módulo se permitirá con una calificación mayor a 8.";
+            continueButton.style.display = 'none'; // Esconde el botón de continuar
+        }
+
+        document.getElementById('motivational').textContent = motivationalMessage;
+        document.getElementById('nextModule').textContent = nextModuleMessage;
+        document.getElementById('resultContainer').style.display = 'block';
+    }
+
+    function retryQuiz() {
+        document.getElementById('quizForm').reset();
+        document.getElementById('resultContainer').style.display = 'none';
+    }
+</script>
+
+</body>
+</html>
